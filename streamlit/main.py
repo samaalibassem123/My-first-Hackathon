@@ -15,6 +15,7 @@ def clicked():
     if date == '' or pch == 0 or tch == 0 or co2ch == 0 or ich == 0:
         st.warning('fileds are required')
         return
+    # get the prediction from the model
     st.session_state['res'] = 6
 
 st.button('predict', on_click=clicked())
