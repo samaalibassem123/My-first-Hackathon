@@ -31,9 +31,7 @@ date = date[date.find('-')+1:]
 month = int(date[:date.find('-')])
 day = int(date[date.find('-')+1:])
 
-#create the dataframe
-columns = ['Indice des actions', 'Température', 'Emission CO2','Chinese Yuan to US $', "Taux d'intérêt", 'month','year', 'day']
-cdf = pd.DataFrame([pch, tch, co2ch,chus,ich, month, year, day], columns=columns)
+
 
 def clicked():
     if st.session_state['disabled'] == True:
@@ -44,9 +42,16 @@ def clicked():
         st.session_state['error'] = True
     else:
         st.session_state['error'] = False
+        #create the dataframe
+        columns = ['Indice des actions', 'Température', 'Emission CO2',
+            'Chinese Yuan to US $', "Taux d'intérêt", 'month',
+            'year', 'day']
+        print(pch, tch, co2ch,chus,ich, month, year, day)
+        cdf = pd.DataFrame(data=[[pch, tch, co2ch,chus,ich, month, year, day]], columns=columns)
+        st.write(cdf)
         #predict the result from the given inputs
-        model.fit()
-        st.session_state['res'] = 7
+        res = model.predict(cdf)
+        st.session_state['res'] = res
     
 
 st.button('predict', on_click=clicked)
