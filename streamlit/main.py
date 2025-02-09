@@ -6,23 +6,18 @@ import joblib
 model = joblib.load('model.joblib')
 
 
-st.write('# Predict Oil prices in china')
+st.write('# Stock price prediction for China')
 st.image('2024-08-02_dqevqgf3r0.webp')
 
 #upload the file
-file = st.file_uploader("You can Upload a File ")
-if file :
-    df = pd.read_excel(file)
-    st.session_state['disabled'] = True
-else:
-    st.session_state['disabled'] = False
 
-date = st.date_input("Date :", disabled=st.session_state['disabled'])
-pch = st.number_input('Indice des actions : ', disabled=st.session_state['disabled'])
-tch = st.number_input('Température : ', disabled=st.session_state['disabled'])
-co2ch = st.number_input('CO2CH exprimés en Millions : ', disabled=st.session_state['disabled'])
-chus = st.number_input('Chinese Yuan to US $ : ', disabled=st.session_state['disabled'])
-ich = st.number_input("Taux d'intérêt : ", disabled=st.session_state['disabled'])
+
+date = st.date_input("Date :")
+pch = st.number_input('Prix de petrole : ')
+tch = st.number_input('Température : ')
+co2ch = st.number_input('CO2CH exprimés en Millions : ')
+chus = st.number_input('Chinese Yuan to US $ : ')
+ich = st.number_input("Taux d'intérêt : ")
 
 #split the date to year-month-day
 date = str(date)
@@ -34,21 +29,18 @@ day = int(date[date.find('-')+1:])
 
 
 def clicked():
-    if st.session_state['disabled'] == True:
-        st.session_state['error'] = False
-        # predict the result for the given file
-        st.session_state['res'] = 6
-    elif pch == 0 or tch == 0 or co2ch == 0 or chus == 0 or ich == 0:
+
+    if pch == 0 or tch == 0 or co2ch == 0 or chus == 0 or ich == 0:
         st.session_state['error'] = True
     else:
         st.session_state['error'] = False
         #create the dataframe
-        columns = ['Indice des actions', 'Température', 'Emission CO2',
+        columns = ['Prix de petrole', 'Température', 'Emission CO2',
             'Chinese Yuan to US $', "Taux d'intérêt", 'month',
             'year', 'day']
         print(pch, tch, co2ch,chus,ich, month, year, day)
         cdf = pd.DataFrame(data=[[pch, tch, co2ch,chus,ich, month, year, day]], columns=columns)
-        st.write(cdf)
+       
         #predict the result from the given inputs
         res = model.predict(cdf)
         st.session_state['res'] = res
