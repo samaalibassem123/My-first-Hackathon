@@ -1,7 +1,5 @@
 ![Alt text](appimg.png)
 
-Here’s a structured README file for your GitHub project, where you used Python and Pandas for data cleaning, Scikit-learn for predictive modeling, and Streamlit to create a web app:
-
 ---
 
 # Stock Price Prediction in China
