@@ -33,7 +33,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/My-first-Hackathon.git
+    git clone https://github.com/samaalibassem123/My-first-Hackathon.git
     cd My-first-Hackathon/streamlit
     ```
 
