@@ -1,5 +1,3 @@
-![Alt text](appimg.png)
-
 ---
 
 # Stock Price Prediction in China
@@ -50,7 +48,11 @@ To start the web application, run:
 streamlit run main.py
 ```
 This command launches the Streamlit app in your web browser, where you can interact with the model.
+--- 
 
+![Alt text](appimg.png)
+
+---
 ## 📈 How It Works
 1. **Data Cleaning**: Using Pandas, the dataset is cleaned and unnecessary columns are removed. Handling of missing values and normalization of data is also performed.
 2. **Model Training**: Scikit-learn is employed to train a machine learning model (Elastic-Net, Random Forest....) on the cleaned dataset.
