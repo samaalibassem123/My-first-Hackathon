@@ -14,11 +14,11 @@ This project utilizes Python, Pandas, and Scikit-learn to clean a given dataset 
 ## 📊 Dataset
 The dataset used in this project contains historical stock prices for various companies in China. Key features may include:
 - Date
-- Opening price
-- Closing price
-- High price
-- Low price
-- Volume
+- Indice des actions (target)
+- Température
+- Emission CO2
+- Taux d'intérêt
+- Prix du pétrole
 
 ## 🚀 Features
 - Data cleaning and preprocessing using Pandas.
