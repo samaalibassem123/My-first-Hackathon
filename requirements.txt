@@ -1,0 +1,13 @@
+# Data manipulation and analysis  
+pandas==1.5.3  
+numpy==1.24.0  
+
+# Machine learning  
+scikit-learn==1.2.0  
+
+# Web app framework  
+streamlit==1.19.0  
+
+# Optional: For any additional visualizations, if needed  
+matplotlib==3.6.2  
+seaborn==0.12.2
